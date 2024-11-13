@@ -28,6 +28,8 @@ jobs:
     - name: Build Windows binary
       run: |
         pyinstaller --onefile --distpath dist/windows --name uploader.exe src/uploader.py
+        cp -R configs dist/windows
+        cp README.md dist/windows
 
     - name: Compress Windows binary
       run: zip -j crdc-datahub-cli-uploader-windows.zip dist/windows/uploader.exe
@@ -70,12 +72,16 @@ jobs:
       - name: Build macOS Intel binary
         run: |
           pyinstaller --onefile --paths=src/bento --distpath dist/mac-x64 --name uploader src/uploader.py
+          cp -R configs dist/mac-x64
+          cp README.md dist/mac-x64
 
       - name: Build macOS Apple Silicon binary
         env:
           ARCHFLAGS: "-arch arm64"  # Ensures build for Apple Silicon
         run: |
           pyinstaller --onefile --paths=src/bento --distpath dist/mac-arm --name uploader src/uploader.py
+          cp -R configs dist/mac-arm
+          cp README.md dist/mac-arm
 
       - name: Compress Binary Files
         run: |
