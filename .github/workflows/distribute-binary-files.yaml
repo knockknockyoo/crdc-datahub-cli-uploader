@@ -39,6 +39,8 @@ jobs:
         asset_path: ./crdc-datahub-cli-uploader-windows.zip
         asset_name: crdc-datahub-cli-uploader-windows.zip
         asset_content_type: application/zip
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   build-binary-macOS-files:
     runs-on: macos-latest  # GitHub needs a base runner
@@ -88,6 +90,8 @@ jobs:
           asset_path: ./crdc-datahub-cli-uploader-mac-x64.zip
           asset_name: crdc-datahub-cli-uploader-mac-x64.zip
           asset_content_type: application/zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload macOS Apple Silicon binary to release
         uses: actions/upload-release-asset@v1
@@ -96,6 +100,8 @@ jobs:
           asset_path: ./crdc-datahub-cli-uploader-mac-arm.zip
           asset_name: crdc-datahub-cli-uploader-mac-arm.zip
           asset_content_type: application/zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload source code to release
         uses: actions/upload-release-asset@v1
@@ -104,3 +110,5 @@ jobs:
           asset_path: ./crdc-datahub-cli-uploader.zip
           asset_name: crdc-datahub-cli-uploader.zip
           asset_content_type: application/zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
