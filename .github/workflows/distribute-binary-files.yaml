@@ -32,7 +32,7 @@ jobs:
         cp README.md dist/windows
 
     - name: Compress Windows binary
-      run: zip -j crdc-datahub-cli-uploader-windows.zip dist/windows/uploader.exe
+      run: zip -j crdc-datahub-cli-uploader-windows.zip dist/windows
 
     - name: Upload Windows binary to release
       uses: actions/upload-release-asset@v1
@@ -85,8 +85,8 @@ jobs:
 
       - name: Compress Binary Files
         run: |
-          zip -j crdc-datahub-cli-uploader-mac-arm.zip dist/mac-arm/uploader
-          zip -j crdc-datahub-cli-uploader-mac-x64.zip dist/mac-x64/uploader
+          zip -j crdc-datahub-cli-uploader-mac-arm.zip dist/mac-arm
+          zip -j crdc-datahub-cli-uploader-mac-x64.zip dist/mac-x64
         shell: bash
 
       - name: Upload macOS Intel binary to release
