@@ -132,10 +132,10 @@ jobs:
           cp -R configs dist/mac-x64
           cp README.md dist/mac-x64
 
-      - name: Compress Binary Apple Silicon Files
+      - name: Compress Binary Apple Intel Files
         run: |
-          cd dist/mac-arm
-          zip -r ../../crdc-datahub-cli-uploader-mac-arm.zip .
+          cd dist/mac-x64
+          zip -r ../../crdc-datahub-cli-uploader-mac-x64.zip .
         shell: bash
 
       - name: Upload macOS Intel binary to release
