@@ -38,8 +38,8 @@ jobs:
 
     - name: Compress Windows binary
       run: |
-        cd dist/windows
-        zip -r ../../crdc-datahub-cli-uploader-windows.zip .
+        cd dist/windows      
+        Compress-Archive -Path .\* -DestinationPath ../../crdc-datahub-cli-uploader-windows.zip
 
     - name: Upload Windows binary to release
       uses: actions/upload-release-asset@v1
